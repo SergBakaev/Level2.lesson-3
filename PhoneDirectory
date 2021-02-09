@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class PhoneDirectory {
+
+   public static Map<String,String> map = new HashMap<>();
+
+
+        public static void add(String phone,String surname){
+            map.put(phone,surname);
+        }
+
+        public static String[] get(String surname){
+            List <String>  a = new ArrayList<>();
+            for(Map.Entry entry : map.entrySet()) {
+                if (surname.equalsIgnoreCase((String) entry.getValue())){
+                    a.add((String) entry.getKey());
+                }
+            }
+            return a.toArray(new String[0]);
+        }
+}
